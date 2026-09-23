@@ -1,31 +1,46 @@
+<?php
+
+require_once('functions.php');
+
+$todo = getSelectedTodo($_GET['id']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
-  <title>新規作成</title>
+  <title>編集</title>
 </head>
 
 <body>
 
-  <h1>新規作成</h1>
+  <h1>編集</h1>
 
   <form action="store.php" method="post">
 
     <input
       type="hidden"
       name="action"
-      value="create"
+      value="update"
+    >
+
+    <input
+      type="hidden"
+      name="id"
+      value="<?= $_GET['id']; ?>"
     >
 
     <input
       type="text"
       name="content"
+      value="<?= htmlspecialchars($todo); ?>"
     >
 
     <input
       type="submit"
-      value="作成"
+      value="更新"
     >
 
   </form>
