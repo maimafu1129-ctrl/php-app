@@ -1,5 +1,7 @@
+<!-- すでに登録されているデータの編集 -->
+ <!-- 米山のみ -->
 <?php
-
+// 関数を読み取り
 require_once('functions.php');
 
 $todo = getSelectedTodo($_GET['id']);
