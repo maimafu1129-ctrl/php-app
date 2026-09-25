@@ -9,7 +9,7 @@ require_once('functions.php'); //追記
   <title>Home</title>
 </head>
 <body>
-  welcome hello world
+  <h1>TODO一覧</h1>
   <div>
      <a href="new.php">
        <p>新規作成</p>
