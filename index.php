@@ -41,13 +41,14 @@ require_once('functions.php');
           </td>
 
           <td>
+            
+            <!-- HTMLとして安全に表示できる形に変換して、その値をtdの中に表示 -->
             <?= htmlspecialchars($todo['content']); ?>
           </td>
 
           <td>
-            <a href="edit.php?id=<?= $todo['id']; ?>">
-              編集
-            </a>
+            <!-- ？はここから情報の追加 -->
+            <a href="edit.php?id=<?= $todo['id']; ?>">編集</a>
           </td>
 
           <td>

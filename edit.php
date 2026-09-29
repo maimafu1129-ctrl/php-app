@@ -3,9 +3,12 @@
 <?php
 // 関数を読み取り
 require_once('functions.php');
-
+// URLのGETパラメーター
+// $_GET スパーグローバル変数（）定義済み変数
+// IDなどを指定してページを表示
+// var_dump($_GET);
+// exit;
 $todo = getSelectedTodo($_GET['id']);
-
 ?>
 
 <!DOCTYPE html>
@@ -22,22 +25,15 @@ $todo = getSelectedTodo($_GET['id']);
 
   <form action="store.php" method="post">
 
+    <input type="hidden" name="action" value="update">
+<!-- データを取得するために記載が必要 -->
     <input
-      type="hidden"
-      name="action"
-      value="update"
+      type="hidden" name="id" value="<?= $_GET['id']; ?>"
     >
 
     <input
-      type="hidden"
-      name="id"
-      value="<?= $_GET['id']; ?>"
-    >
-
-    <input
-      type="text"
-      name="content"
-      value="<?= htmlspecialchars($todo); ?>"
+      type="text" name="content" value="<?= htmlspecialchars($todo); ?>"
+      
     >
 
     <input
