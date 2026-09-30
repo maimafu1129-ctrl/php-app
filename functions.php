@@ -35,6 +35,7 @@ function savePostedData($post)
 
 function getRefererPath()
 {
+    // 連想配列
     $urlArray = parse_url($_SERVER['HTTP_REFERER']);
     return $urlArray['path'];
 }

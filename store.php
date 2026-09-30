@@ -4,6 +4,7 @@ require_once('functions.php');
 
 // 全ての引数の受け渡し
 // フォームからデータを送信
+
 savePostedData($_POST);
 
 // 処理が終わったらindex.phpへ移動
