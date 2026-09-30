@@ -27,19 +27,13 @@ $todo = getSelectedTodo($_GET['id']);
 
     <input type="hidden" name="action" value="update">
 <!-- データを取得するために記載が必要 -->
-    <input
-      type="hidden" name="id" value="<?= $_GET['id']; ?>"
-    >
 
-    <input
-      type="text" name="content" value="<?= htmlspecialchars($todo); ?>"
+    <!-- 編集 -->
+    <input type="hidden" name="id" value="<?= e($_GET['id']); ?>"> 
+    <input type="text" name="content" value="<?= e($todo); ?>"> 
       
-    >
 
-    <input
-      type="submit"
-      value="更新"
-    >
+    <input type="submit" value="更新" >
 
   </form>
 

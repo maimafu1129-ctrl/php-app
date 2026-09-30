@@ -1,6 +1,7 @@
 <?php
 
 require_once('functions.php');
+// header('Set-Cookie: userId=123');
 
 ?>
 
@@ -36,39 +37,19 @@ require_once('functions.php');
 
         <tr>
 
-          <td>
-            <?= $todo['id']; ?>
-          </td>
-
-          <td>
-            
-            <!-- HTMLとして安全に表示できる形に変換して、その値をtdの中に表示 -->
-            <?= htmlspecialchars($todo['content']); ?>
-          </td>
+          <td><?= e($todo['id']); ?></td>
+          <td><?= e($todo['content']); ?></td>
 
           <td>
             <!-- ？はここから情報の追加 -->
-            <a href="edit.php?id=<?= $todo['id']; ?>">編集</a>
+             <a href="edit.php?id=<?= e($todo['id']); ?>">更新</a>
           </td>
 
           <td>
             <form action="store.php" method="post">
 
-              <input
-                type="hidden"
-                name="action"
-                value="delete"
-              >
-
-              <input
-                type="hidden"
-                name="id"
-                value="<?= $todo['id']; ?>"
-              >
-
-              <button type="submit">
-                削除
-              </button>
+              <input type="hidden" name="id" value="<?= e($todo['id']); ?>">
+              <button type="submit">削除</button>
 
             </form>
           </td>
