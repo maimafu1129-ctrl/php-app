@@ -38,7 +38,7 @@ function updateTodoData($post)
 {
     $dbh = connectPdo();
 
-    // odosテーブルのcontentを更新するSQL文の最初の部分
+    // todosテーブルのcontentを更新するSQL文の最初の部分
     $sql = 'UPDATE todos SET content = "' . $post['content'] . '" WHERE id = ' . $post['id'];
     // $postという連想配列から、contentというキーの値を取り出して、SQL文につなげる
 

@@ -55,15 +55,11 @@ require_once('functions.php');
             <form action="store.php" method="post">
 
               <input
-                type="hidden"
-                name="action"
-                value="delete"
+                type="hidden" name="action" value="delete"
               >
 
               <input
-                type="hidden"
-                name="id"
-                value="<?= $todo['id']; ?>"
+                type="hidden" name="id" value="<?= $todo['id']; ?>"
               >
 
               <button type="submit">
