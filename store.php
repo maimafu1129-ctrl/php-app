@@ -5,6 +5,7 @@ require_once('functions.php');
 // 全ての引数の受け渡し
 // フォームからデータを送信
 
+// csrf 6
 savePostedData($_POST);
 
 // 処理が終わったらindex.phpへ移動

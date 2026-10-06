@@ -1,7 +1,10 @@
 <?php
-
+// csrf 1 
+// リクワイヤーワンス
 require_once('functions.php');
-// header('Set-Cookie: userId=123');
+header('Set-Cookie: userId=123');
+// csrf 4
+setToken();
 
 ?>
 
@@ -14,7 +17,10 @@ require_once('functions.php');
 </head>
 
 <body>
-
+  <!--  csrf 11 -->
+<?php if (!empty($_SESSION['err'])): ?> 
+    <p><?= $_SESSION['err']; ?></p> 
+  <?php endif; ?> 
   <h1>TODO一覧</h1>
 
   <div>
@@ -49,6 +55,8 @@ require_once('functions.php');
             <form action="store.php" method="post">
 
               <input type="hidden" name="id" value="<?= e($todo['id']); ?>">
+              <!--  csrf 5 -->
+              <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>"> 
               <button type="submit">削除</button>
 
             </form>
@@ -61,6 +69,8 @@ require_once('functions.php');
     </table>
   </div>
 
+   <!-- csrf 12 -->
+  <?php unsetError(); ?>
 </body>
 
 </html>

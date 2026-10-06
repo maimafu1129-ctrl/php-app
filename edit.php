@@ -1,13 +1,9 @@
-<!-- すでに登録されているデータの編集 -->
- <!-- 米山のみ -->
+
 <?php
-// 関数を読み取り
+// リクワイヤーワンス
 require_once('functions.php');
-// URLのGETパラメーター
-// $_GET スパーグローバル変数（）定義済み変数
-// IDなどを指定してページを表示
-// var_dump($_GET);
-// exit;
+setToken();
+
 $todo = getSelectedTodo($_GET['id']);
 ?>
 
@@ -20,15 +16,16 @@ $todo = getSelectedTodo($_GET['id']);
 </head>
 
 <body>
-
-  <h1>編集</h1>
-
+  <?php if (!empty($_SESSION['err'])): ?> 
+    <p><?= $_SESSION['err']; ?></p> 
+  <?php endif; ?> 
   <form action="store.php" method="post">
 
     <input type="hidden" name="action" value="update">
 <!-- データを取得するために記載が必要 -->
 
     <!-- 編集 -->
+    <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>"> 
     <input type="hidden" name="id" value="<?= e($_GET['id']); ?>"> 
     <input type="text" name="content" value="<?= e($todo); ?>"> 
       
@@ -42,7 +39,7 @@ $todo = getSelectedTodo($_GET['id']);
       一覧へもどる
     </a>
   </div>
-
+  <?php unsetError(); ?> 
 </body>
 
 </html>
